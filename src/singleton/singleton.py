@@ -1,14 +1,33 @@
 # Singleton Pattern in Python
-""# This ensures only one instance of a class is created""
+# This ensures only one instance of a class is created""
+"""
+================================================================================
+                    SINGLETON vs NORMAL CLASS COMPARISON
+================================================================================
+
+| Feature                  | NormalClass                  | Singleton                     |
+|--------------------------|------------------------------|-------------------------------|
+| Number of objects        | Multiple                     | Only 1                        |
+| s1 is s2                 | False                        | True                          |
+| New object created?      | Every time                   | Only first time               |
+| Memory usage             | More objects                 | Only one object               |
+| Data Consistency         | Each object has own data     | All share same data           |
+| Use Case                 | Regular objects              | Shared resource (Logger, DB)  |
+
+================================================================================
+
+"""
 
 class Singleton:
-    """Singleton class using __new__ method"""
+    """
+    Singleton class using __new__ method.
+    """
     
-    _INSTANCE = None  # Class variable to hold the single instance
+    _INSTANCE = None
     
     def __new__(cls, *args, **kwargs):
         if cls._INSTANCE is None:
-            print("Creating the singleton instance...")
+            print("Creating the singleton instance.")
             cls._INSTANCE = super().__new__(cls)
         else:
             print("Returning existing singleton instance...")
